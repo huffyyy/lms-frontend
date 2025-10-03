@@ -1,0 +1,148 @@
+import { createBrowserRouter, redirect } from "react-router-dom";
+import ManagerHomePage from "../pages/Manager/home";
+import SignInPage from "../pages/SignIn";
+import SignUpPage from "../pages/SignUp";
+import SuccesCheckoutPage from "../pages/SuccesCheckout";
+import LayoutDashboard from "../components/Layout";
+import ManageCoursePage from "../pages/Manager/Courses";
+import ManageCreateCoursePage from "../pages/Manager/Create-Courses";
+import ManageCourseDetailPage from "../pages/Manager/Courses-Detail";
+import ManageCourseContentCreatePage from "../pages/Manager/Course-Content-Create";
+import ManageCoursePreviewPage from "../pages/Manager/Course-Preview";
+import ManageStudentsPage from "../pages/Manager/Students";
+import StudentPage from "../pages/Student/StudentOverview";
+import { MANAGER_SESSION, STRORAGE_KEY } from "../utils/const";
+import secureLocalStorage from "react-secure-storage";
+import { getCategories, getCourseDetail, getCourses, getDetailContent } from "../services/courseService";
+import ManageStudentCreatePage from "../pages/Manager/Student-Create";
+import { getDetailStudent, getStudents } from "../services/studentServices";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <ManagerHomePage />
+  },
+  {
+    path: "/manager/sign-in",
+    element: <SignInPage />
+  },
+  {
+    path: "/manager/sign-up",
+    element: <SignUpPage />
+  },
+  {
+    path: "/success-checkout",
+    element: <SuccesCheckoutPage />
+  },
+  {
+    path: "/manager",
+    id: MANAGER_SESSION,
+    loader: async () => {
+      const session = secureLocalStorage.getItem(STRORAGE_KEY);
+
+      if (!session || session.role !== "manager") {
+        throw redirect("/manager/sign-in");
+      }
+
+      return session;
+    },
+    element: <LayoutDashboard />,
+    children: [
+      {
+        index: true,
+        element: <ManagerHomePage />
+      },
+      {
+        path: "courses",
+        loader: async () => {
+          const data = await getCourses();
+          return data;
+        },
+        element: <ManageCoursePage />
+      },
+      {
+        path: "courses/create",
+        loader: async () => {
+          const categories = await getCategories();
+          return { categories, course: null };
+        },
+        element: <ManageCreateCoursePage />
+      },
+      {
+        path: "courses/edit/:id",
+        loader: async ({ params }) => {
+          const categories = await getCategories();
+          const course = await getCourseDetail(params.id);
+          return { categories, course: course?.data };
+        },
+        element: <ManageCreateCoursePage />
+      },
+      {
+        path: "courses/:id",
+        loader: async ({ params }) => {
+          const course = await getCourseDetail(params.id);
+          return course?.data;
+        },
+        element: <ManageCourseDetailPage />
+      },
+      {
+        path: "courses/:id/create",
+        element: <ManageCourseContentCreatePage />
+      },
+      {
+        path: "courses/:id/edit/:contentId",
+        loader: async ({ params }) => {
+          const content = await getDetailContent(params.contentId);
+          return content?.data;
+        },
+        element: <ManageCourseContentCreatePage />
+      },
+      {
+        path: "courses/:id/preview",
+        loader: async ({ params }) => {
+          const course = await getCourseDetail(params.id, true);
+          return course?.data;
+        },
+        element: <ManageCoursePreviewPage />
+      },
+      {
+        path: "/manager/students",
+        loader: async () => {
+          const students = await getStudents();
+
+          return students?.data;
+        },
+        element: <ManageStudentsPage />
+      },
+      {
+        path: "/manager/students/create",
+        element: <ManageStudentCreatePage />
+      },
+      {
+        path: "/manager/students/edit/:id",
+        loader: async ({ params }) => {
+          const student = await getDetailStudent(params.id);
+
+          return student?.data;
+        },
+        element: <ManageStudentCreatePage />
+      }
+    ]
+  },
+  {
+    path: "/student",
+    element: <LayoutDashboard isAdmin={false} />,
+    children: [
+      {
+        index: true,
+        element: <StudentPage />
+      },
+      {
+        path: "/student/detail-course/:id",
+        element: <ManageCoursePreviewPage />
+      }
+    ]
+  }
+]);
+
+export default router;
