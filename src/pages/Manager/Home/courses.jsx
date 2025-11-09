@@ -1,119 +1,48 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 export default function Courses() {
+  const overview = useLoaderData();
+
+  // ✅ Ambil maksimal 6 course
+  const courses = overview?.courses?.slice(0, 6) ?? [];
+
   return (
-    <section
-      id="LatestCourse"
-      className="flex flex-col rounded-[30px] p-[30px] gap-[30px] bg-[#F8FAFB]"
-    >
-      <h2 className="font-extrabold text-[22px] leading-[33px]">
-        Latest Courses
-      </h2>
-      <div className="card flex items-center gap-5">
-        <div className="flex shrink-0 w-[100px] h-20 rounded-[20px] bg-[#D9D9D9] overflow-hidden">
-          <img
-            src="/assets/images/thumbnails/th-1.png"
-            className="w-full h-full object-cover"
-            alt="thumbnail"
-          />
-        </div>
-        <div className="w-full">
-          <Link
-            to="#"
-            className="font-bold text-xl leading-[30px] line-clamp-1"
-          >
-            Responsive Design Triclorem Lorem, ipsum dolor.
-          </Link>
-          <div className="flex items-center gap-[6px] mt-[6px]">
-            <img src="/assets/images/icons/crown-purple.svg" alt="icon" />
-            <p className="text-[#838C9D]">Programming</p>
-          </div>
-        </div>
-      </div>
-      <div className="card flex items-center gap-5">
-        <div className="flex shrink-0 w-[100px] h-20 rounded-[20px] bg-[#D9D9D9] overflow-hidden">
-          <img
-            src="/assets/images/thumbnails/th-2.png"
-            className="w-full h-full object-cover"
-            alt="thumbnail"
-          />
-        </div>
-        <div className="w-full">
-          <Link
-            to="#"
-            className="font-bold text-xl leading-[30px] line-clamp-1"
-          >
-            HTMX JavaScript 2020
-          </Link>
-          <div className="flex items-center gap-[6px] mt-[6px]">
-            <img src="/assets/images/icons/crown-purple.svg" alt="icon" />
-            <p className="text-[#838C9D]">Marketing</p>
-          </div>
-        </div>
-      </div>
-      <div className="card flex items-center gap-5">
-        <div className="flex shrink-0 w-[100px] h-20 rounded-[20px] bg-[#D9D9D9] overflow-hidden">
-          <img
-            src="/assets/images/thumbnails/th-3.png"
-            className="w-full h-full object-cover"
-            alt="thumbnail"
-          />
-        </div>
-        <div className="w-full">
-          <Link
-            to="#"
-            className="font-bold text-xl leading-[30px] line-clamp-1"
-          >
-            Mastering React
-          </Link>
-          <div className="flex items-center gap-[6px] mt-[6px]">
-            <img src="/assets/images/icons/crown-purple.svg" alt="icon" />
-            <p className="text-[#838C9D]">Data Science</p>
-          </div>
-        </div>
-      </div>
-      <div className="card flex items-center gap-5">
-        <div className="flex shrink-0 w-[100px] h-20 rounded-[20px] bg-[#D9D9D9] overflow-hidden">
-          <img
-            src="/assets/images/thumbnails/th-2.png"
-            className="w-full h-full object-cover"
-            alt="thumbnail"
-          />
-        </div>
-        <div className="w-full">
-          <Link
-            to="#"
-            className="font-bold text-xl leading-[30px] line-clamp-1"
-          >
-            Responsive Design Triclorem Lorem, ipsum dolor.
-          </Link>
-          <div className="flex items-center gap-[6px] mt-[6px]">
-            <img src="/assets/images/icons/crown-purple.svg" alt="icon" />
-            <p className="text-[#838C9D]">Marketing</p>
-          </div>
-        </div>
-      </div>
-      <div className="card flex items-center gap-5">
-        <div className="flex shrink-0 w-[100px] h-20 rounded-[20px] bg-[#D9D9D9] overflow-hidden">
-          <img
-            src="/assets/images/thumbnails/th-3.png"
-            className="w-full h-full object-cover"
-            alt="thumbnail"
-          />
-        </div>
-        <div className="w-full">
-          <Link
-            to="#"
-            className="font-bold text-xl leading-[30px] line-clamp-1"
-          >
-            Company Profile Multilorem Lorem, ipsum dolor.
-          </Link>
-          <div className="flex items-center gap-[6px] mt-[6px]">
-            <img src="/assets/images/icons/crown-purple.svg" alt="icon" />
-            <p className="text-[#838C9D]">Data Science</p>
-          </div>
-        </div>
+    <section id="LatestCourse" className="flex flex-col w-[1525px] rounded-[30px] p-[30px] gap-[30px] bg-[#F8FAFB]">
+      <h2 className="font-extrabold text-[22px] leading-[33px]">Latest Courses</h2>
+
+      {/* ✅ GRID 3 COL × 2 ROW */}
+      <div className="grid grid-cols-3">
+        {courses.map((item, index) => {
+          const isColumn1 = index % 3 === 0; // col 1
+          const isColumn2 = index % 3 === 1; // col 2
+
+          return (
+            <div
+              key={item._id}
+              className={`
+                flex items-center gap-5 p-4
+                ${isColumn1 || isColumn2 ? "border-r border-[#D3D6E4]" : ""}
+              `}>
+              {/* Thumbnail */}
+              <div className="flex shrink-0 w-[90px] h-[70px] rounded-[16px] bg-[#D9D9D9] overflow-hidden">
+                <img src={item.thumbnail_url} className="w-full h-full object-cover" alt="thumbnail" />
+              </div>
+
+              {/* Info */}
+              <div className="flex flex-col">
+                <Link to={`/manager/courses/${item._id}`} className="font-bold text-lg leading-[24px] line-clamp-1">
+                  {item.name}
+                </Link>
+
+                <div className="flex items-center gap-[6px] mt-[6px]">
+                  <img src="/assets/images/icons/crown-purple.svg" alt="category" />
+                  <p className="text-[#838C9D] text-sm">{item.category?.name}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

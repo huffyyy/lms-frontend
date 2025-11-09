@@ -1,103 +1,36 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 export default function Students() {
+  const overview = useLoaderData();
+
   return (
     <section
       id="LatestStudents"
-      className="flex flex-col rounded-[30px] p-[30px] gap-[30px] bg-[#F8FAFB]"
-    >
-      <h2 className="font-extrabold text-[22px] leading-[33px]">
-        Latest Students
-      </h2>
-      <div className="card flex items-center gap-5">
-        <div className="flex shrink-0 w-20 h-20 rounded-[20px] bg-[#D9D9D9] overflow-hidden">
-          <img
-            src="/assets/images/photos/photo-2.png"
-            className="w-full h-full object-cover"
-            alt="thumbnail"
-          />
-        </div>
-        <div className="w-full">
-          <h3 className="font-bold text-xl leading-[30px] line-clamp-1">
-            Yulia Putri
-          </h3>
-          <div className="flex items-center gap-[6px] mt-[6px]">
-            <img src="/assets/images/icons/crown-purple.svg" alt="icon" />
-            <p className="text-[#838C9D]">183 Course Joined</p>
+      className="flex flex-col h-[425px] rounded-[30px] p-[30px] gap-[20px] bg-white shadow-[0_4px_4px_0_#E0E2EF]">
+      <h2 className="font-extrabold text-[22px] leading-[33px]">Latest Students</h2>
+
+      {/* GRID STUDENTS */}
+      <div className="grid grid-cols-4 m-auto gap-6">
+        {overview?.students?.slice(0, 4).map((student) => (
+          <div
+            key={student._id}
+            className="w-full  bg-[#F8FAFB] rounded-[20px] p-5 flex flex-col items-center shadow-[0_2px_6px_0_#E0E2EF] hover:shadow-[0_4px_12px_0_#D5D8E6] transition-shadow">
+            {/* Foto */}
+            <div className="w-20 h-20 rounded-[20px] overflow-hidden mb-3">
+              <img src={student.photo_url} className="w-full h-full object-cover" alt={student.name} />
+            </div>
+
+            {/* Nama */}
+            <p className="font-bold text-lg text-center line-clamp-1">{student.name}</p>
+
+            {/* Courses */}
+            <div className="flex items-center gap-2 mt-2">
+              <img src="/assets/images/icons/crown-blue.svg" className="w-4 h-4" />
+              <p className="text-[#838C9D] text-sm">{student.courses?.length ?? 0} Courses</p>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="card flex items-center gap-5">
-        <div className="flex shrink-0 w-20 h-20 rounded-[20px] bg-[#D9D9D9] overflow-hidden">
-          <img
-            src="/assets/images/photos/photo-3.png"
-            className="w-full h-full object-cover"
-            alt="thumbnail"
-          />
-        </div>
-        <div className="w-full">
-          <h3 className="font-bold text-xl leading-[30px] line-clamp-1">
-            Angga Risky Setiawan
-          </h3>
-          <div className="flex items-center gap-[6px] mt-[6px]">
-            <img src="/assets/images/icons/crown-purple.svg" alt="icon" />
-            <p className="text-[#838C9D]">183 Course Joined</p>
-          </div>
-        </div>
-      </div>
-      <div className="card flex items-center gap-5">
-        <div className="flex shrink-0 w-20 h-20 rounded-[20px] bg-[#D9D9D9] overflow-hidden">
-          <img
-            src="/assets/images/photos/photo-4.png"
-            className="w-full h-full object-cover"
-            alt="thumbnail"
-          />
-        </div>
-        <div className="w-full">
-          <h3 className="font-bold text-xl leading-[30px] line-clamp-1">
-            Shayna Wo
-          </h3>
-          <div className="flex items-center gap-[6px] mt-[6px]">
-            <img src="/assets/images/icons/crown-purple.svg" alt="icon" />
-            <p className="text-[#838C9D]">183 Course Joined</p>
-          </div>
-        </div>
-      </div>
-      <div className="card flex items-center gap-5">
-        <div className="flex shrink-0 w-20 h-20 rounded-[20px] bg-[#D9D9D9] overflow-hidden">
-          <img
-            src="/assets/images/photos/photo-5.png"
-            className="w-full h-full object-cover"
-            alt="thumbnail"
-          />
-        </div>
-        <div className="w-full">
-          <h3 className="font-bold text-xl leading-[30px] line-clamp-1">
-            Imanual Kod
-          </h3>
-          <div className="flex items-center gap-[6px] mt-[6px]">
-            <img src="/assets/images/icons/crown-purple.svg" alt="icon" />
-            <p className="text-[#838C9D]">183 Course Joined</p>
-          </div>
-        </div>
-      </div>
-      <div className="card flex items-center gap-5">
-        <div className="flex shrink-0 w-20 h-20 rounded-[20px] bg-[#D9D9D9] overflow-hidden">
-          <img
-            src="/assets/images/photos/photo-3.png"
-            className="w-full h-full object-cover"
-            alt="thumbnail"
-          />
-        </div>
-        <div className="w-full">
-          <h3 className="font-bold text-xl leading-[30px] line-clamp-1">
-            Battita Gunber
-          </h3>
-          <div className="flex items-center gap-[6px] mt-[6px]">
-            <img src="/assets/images/icons/crown-purple.svg" alt="icon" />
-            <p className="text-[#838C9D]">183 Course Joined</p>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

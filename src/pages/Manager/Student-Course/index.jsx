@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import StudentItem from "./student-item";
 
-export default function ManageStudentsPage() {
-  const students = useLoaderData();
+export default function StudentsCourseList() {
+  const { id } = useParams();
 
-  console.log(students);
+  const course = useLoaderData();
+  console.log(course);
 
   return (
     <>
@@ -19,21 +20,15 @@ export default function ManageStudentsPage() {
             Import File
           </Link>
           <Link
-            to="/manager/students/create"
+            to={`/manager/courses/students/${id}/add`}
             className="w-fit rounded-[16px] p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#1E40AF] text-nowrap">
             Add Student
           </Link>
         </div>
       </header>
       <section id="CourseList" className="flex flex-col w-full rounded-[30px] p-[30px] gap-[30px] bg-[#F8FAFB]">
-        {students?.map((item) => (
-          <StudentItem
-            key={item._id}
-            id={item._id}
-            imageUrl={item.photo_url}
-            name={item.name}
-            totalCourse={item.courses.length}
-          />
+        {course?.students?.map((item) => (
+          <StudentItem key={item._id} id={item._id} name={item.name} imageUrl={item.photo_url ?? null} />
         ))}
 
         <div id="Pagination" className="flex items-center gap-3">

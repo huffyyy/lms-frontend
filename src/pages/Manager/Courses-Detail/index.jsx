@@ -23,12 +23,12 @@ export default function ManageCourseDetailPage() {
         <div className="flex items-center gap-3">
           <Link
             to={`/manager/courses/edit/${id}`}
-            className="w-fit rounded-full border border-[#060A23] p-[14px_20px] font-semibold text-nowrap">
+            className="w-fit rounded-[16px] border border-[#060A23] p-[14px_20px] font-semibold text-nowrap">
             Edit Course
           </Link>
           <Link
             to={`/manager/courses/${id}/preview`}
-            className="w-fit rounded-full p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#662FFF] text-nowrap">
+            className="w-fit rounded-[16px] p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#1E40AF] text-nowrap">
             Preview
           </Link>
         </div>
@@ -39,19 +39,19 @@ export default function ManageCourseDetailPage() {
         </div>
         <div className="grid grid-cols-2 gap-5 w-full">
           <div className="flex flex-col rounded-[20px] border border-[#CFDBEF] p-5 gap-4">
-            <img src="/assets/images/icons/profile-2user-purple.svg" className="w-8 h-8" alt="icon" />
+            <img src="/assets/images/icons/profile-2user-blue.svg" className="w-8 h-8" alt="icon" />
             <p className="font-semibold">{course?.students.length} Students</p>
           </div>
           <div className="flex flex-col rounded-[20px] border border-[#CFDBEF] p-5 gap-4">
-            <img src="/assets/images/icons/crown-purple.svg" className="w-8 h-8" alt="icon" />
+            <img src="/assets/images/icons/crown-blue.svg" className="w-8 h-8" alt="icon" />
             <p className="font-semibold">{course?.category?.name}</p>
           </div>
           <div className="flex flex-col rounded-[20px] border border-[#CFDBEF] p-5 gap-4">
-            <img src="/assets/images/icons/note-favorite-purple.svg" className="w-8 h-8" alt="icon" />
+            <img src="/assets/images/icons/note-favorite-blue.svg" className="w-8 h-8" alt="icon" />
             <p className="font-semibold">{course?.details.length} Contents</p>
           </div>
           <div className="flex flex-col rounded-[20px] border border-[#CFDBEF] p-5 gap-4">
-            <img src="/assets/images/icons/cup-purple.svg" className="w-8 h-8" alt="icon" />
+            <img src="/assets/images/icons/cup-blue.svg" className="w-8 h-8" alt="icon" />
             <p className="font-semibold">Certificate</p>
           </div>
         </div>

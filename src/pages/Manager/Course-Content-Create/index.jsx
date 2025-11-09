@@ -70,9 +70,6 @@ export default function ManageCourseContentCreatePage() {
       </div>
       <header className="flex items-center justify-between gap-[30px]">
         <div className="flex items-center gap-[30px]">
-          <div className="flex shrink-0 w-[150px] h-[100px] rounded-[20px] overflow-hidden bg-[#D9D9D9]">
-            <img src="/assets/images/thumbnails/th-1.png" className="w-full h-full object-cover" alt="thumbnail" />
-          </div>
           <div>
             <h1 className="font-extrabold text-[28px] leading-[42px]">{content === undefined ? "Add" : "Edit"} Content</h1>
             <p className="text-[#838C9D] mt-[1]">Give a best content for the course</p>
@@ -84,7 +81,7 @@ export default function ManageCourseContentCreatePage() {
           <label htmlFor="title" className="font-semibold">
             Content Title
           </label>
-          <div className="flex items-center w-full rounded-full border border-[#CFDBEF] gap-3 px-5 transition-all duration-300 focus-within:ring-2 focus-within:ring-[#662FFF]">
+          <div className="flex items-center w-full rounded-full border border-[#CFDBEF] gap-3 px-5 transition-all duration-300 focus-within:ring-2 focus-within:ring-[#1E40AF]">
             <img src="/assets/images/icons/note-favorite-black.svg" className="w-6 h-6" alt="icon" />
             <input
               {...register("title")}
@@ -100,7 +97,7 @@ export default function ManageCourseContentCreatePage() {
           <label htmlFor="type" className="font-semibold">
             Select Type
           </label>
-          <div className="flex items-center w-full rounded-full border border-[#CFDBEF] gap-3 px-5 transition-all duration-300 focus-within:ring-2 focus-within:ring-[#662FFF]">
+          <div className="flex items-center w-full rounded-full border border-[#CFDBEF] gap-3 px-5 transition-all duration-300 focus-within:ring-2 focus-within:ring-[#1E40AF]">
             <img src="/assets/images/icons/crown-black.svg" className="w-6 h-6" alt="icon" />
             <select
               {...register("type")}
@@ -122,7 +119,7 @@ export default function ManageCourseContentCreatePage() {
             <label htmlFor="video" className="font-semibold">
               Youtube Video ID
             </label>
-            <div className="flex items-center w-full rounded-full border border-[#CFDBEF] gap-3 px-5 transition-all duration-300 focus-within:ring-2 focus-within:ring-[#662FFF]">
+            <div className="flex items-center w-full rounded-full border border-[#CFDBEF] gap-3 px-5 transition-all duration-300 focus-within:ring-2 focus-within:ring-[#1E40AF]">
               <img src="/assets/images/icons/bill-black.svg" className="w-6 h-6" alt="icon" />
               <input
                 {...register("youtubeId")}
@@ -163,7 +160,7 @@ export default function ManageCourseContentCreatePage() {
           <button
             type="submit"
             disabled={content === undefined ? mutateCreate.isLoading : mutateUpdate.isLoading}
-            className="w-full rounded-full p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#662FFF] text-nowrap">
+            className="w-full rounded-full p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#1E40AF] text-nowrap">
             {content === undefined ? "Add" : "Edit"} Content Now
           </button>
         </div>

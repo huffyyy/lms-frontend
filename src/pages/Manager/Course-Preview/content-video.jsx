@@ -24,7 +24,7 @@ export default function ContentVideo({ content, handleNext }) {
         <button
           type="button"
           onClick={() => handleNext(content)}
-          className="w-fit rounded-full p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#662FFF] text-nowrap">
+          className="w-fit rounded-full p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#1E40AF] text-nowrap">
           Mark as Completed
         </button>
       </div>
