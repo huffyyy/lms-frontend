@@ -1,12 +1,57 @@
-# React + Vite
+# LMS Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean and modern frontend for a Learning Management System (LMS), built with React and Vite.
+Designed to deliver a responsive interface, modular components, and an intuitive learning experience.
+This project is part of a full-stack MERN architecture, integrating MongoDB, Express.js, React, and Node.js.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Preview
 
-## Expanding the ESLint configuration
+> ![App Preview](/public/assets/images/preview/image%209.png)  
+> ![App Preview](/public/assets/images/preview/image%2011.png) > ![App Preview](/public/assets/images/preview/image%2010.png) > ![App Preview](/public/assets/images/preview/image%207.png) > ![App Preview](/public/assets/images/preview/image%208.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+- React
+- Vite
+- TailwindCSS
+- JavaScript (ES6+)
+
+---
+
+## Development Tools
+
+- Git & GitHub
+- Visual Studio Code
+- Postman
+- Figma
+
+## Features
+
+- Modern and responsive UI
+- Course browsing and detailed views
+- Student/instructor dashboard
+- Structured learning workflow
+- Modular and reusable components
+- Fast development setup with Vite
+
+---
+
+## 🛠 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/lms-frontend.git
+
+# Navigate into the folder
+cd lms-frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
