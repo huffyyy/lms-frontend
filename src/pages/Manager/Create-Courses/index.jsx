@@ -67,7 +67,6 @@ export default function ManageCreateCoursePage() {
 
   return (
     <>
-      {/* HEADER */}
       <header className="flex items-center justify-between mb-10">
         <div>
           <h1 className="font-extrabold text-[28px] leading-[42px]">{isEditMode ? "Edit" : "Add"} Course</h1>
@@ -79,11 +78,8 @@ export default function ManageCreateCoursePage() {
         <button className="rounded-[16px] border border-[#060A23] px-5 py-3 font-semibold">Import</button>
       </header>
 
-      {/* FORM WRAPPER */}
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-3xl bg-[#F8FAFB] rounded-[30px] p-10 mx-auto flex flex-col gap-10">
-        {/* ✅ GRID UTAMA */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* COURSE NAME */}
           <div className="flex flex-col gap-2">
             <label className="font-semibold">Course Name</label>
 
@@ -101,7 +97,6 @@ export default function ManageCreateCoursePage() {
             <span className="text-[#FF435A] text-sm">{errors?.name?.message}</span>
           </div>
 
-          {/* TAGLINE */}
           <div className="flex flex-col gap-2">
             <label className="font-semibold">Course Tagline</label>
 
@@ -119,7 +114,6 @@ export default function ManageCreateCoursePage() {
             <span className="text-[#FF435A] text-sm">{errors?.tagline?.message}</span>
           </div>
 
-          {/* CATEGORY */}
           <div className="flex flex-col gap-2">
             <label className="font-semibold">Select Category</label>
 
@@ -142,7 +136,6 @@ export default function ManageCreateCoursePage() {
           </div>
         </div>
 
-        {/* ✅ THUMBNAIL (FULL WIDTH) */}
         <div className="flex flex-col gap-2">
           <label className="font-semibold">Add a Thumbnail</label>
 
@@ -180,7 +173,6 @@ export default function ManageCreateCoursePage() {
           <span className="text-[#FF435A] text-sm">{errors?.thumbnail?.message}</span>
         </div>
 
-        {/* ✅ DESCRIPTION (FULL WIDTH) */}
         <div className="flex flex-col gap-2">
           <label className="font-semibold">Description</label>
 
@@ -200,7 +192,6 @@ export default function ManageCreateCoursePage() {
           <span className="text-[#FF435A] text-sm">{errors?.description?.message}</span>
         </div>
 
-        {/* ✅ BUTTONS */}
         <div className="flex gap-5">
           <button type="button" className="w-full rounded-full border border-[#060A23] py-4 font-semibold bg-white">
             Save as Draft

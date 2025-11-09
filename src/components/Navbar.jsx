@@ -5,7 +5,6 @@ export default function Navbar() {
   return (
     <div className="flex items-center w-full px-6  ">
       <img src="/assets/images/logos/logo.svg" className="flex shrink-0" alt="logo" />
-      {/* ml-auto mendorong UL ke kanan */}
       <ul className="flex items-center gap-10 ml-auto">
         <li className="font-semibold transition-all duration-300 hover:text-[#1E40AF] text-black">
           <Link to="#">Home</Link>

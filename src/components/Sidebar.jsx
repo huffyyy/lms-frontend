@@ -88,7 +88,6 @@ export default function Sidebar({ isAdmin = true }) {
             )}
           </ul>
 
-          {/* --- OTHERS --- */}
           <ul className="flex flex-col gap-4">
             <p className="font-semibold text-xs leading-[18px] text-white">OTHERS</p>
 

@@ -78,14 +78,12 @@ export default function ManageStudentCreatePage() {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col w-[550px] rounded-[30px] p-[30px] gap-[30px] bg-[#F8FAFB] m-auto">
-        {/* ✅ Avatar Upload (Consistency with Add Course Thumbnail) */}
         <div className="flex flex-col gap-[10px]">
           <label className="font-semibold">{student === undefined ? "Add" : "Edit"} Avatar</label>
 
           <div
             className="relative flex w-full h-[200px] rounded-[20px] border border-[#CFDBEF] overflow-hidden cursor-pointer"
             onClick={() => inputFileRef.current?.click()}>
-            {/* BEFORE UPLOAD */}
             {file === null && !student?.photo_url && (
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                 <img src="/assets/images/icons/gallery-add-black.svg" className="w-6 h-6" alt="upload" />
@@ -93,7 +91,6 @@ export default function ManageStudentCreatePage() {
               </div>
             )}
 
-            {/* AFTER UPLOAD OR EXISTING PHOTO */}
             {(file !== null || student?.photo_url) && (
               <img
                 src={file ? URL.createObjectURL(file) : student.photo_url}
@@ -121,7 +118,6 @@ export default function ManageStudentCreatePage() {
           <span className="text-[#FF435A]">{errors?.avatar?.message}</span>
         </div>
 
-        {/* ✅ Full Name */}
         <div className="flex flex-col gap-[10px]">
           <label htmlFor="name" className="font-semibold">
             Full Name
@@ -139,7 +135,6 @@ export default function ManageStudentCreatePage() {
           <span className="text-[#FF435A]">{errors?.name?.message}</span>
         </div>
 
-        {/* ✅ Email */}
         <div className="flex flex-col gap-[10px]">
           <label htmlFor="email" className="font-semibold">
             Email Address
@@ -157,7 +152,6 @@ export default function ManageStudentCreatePage() {
           <span className="text-[#FF435A]">{errors?.email?.message}</span>
         </div>
 
-        {/* ✅ Password */}
         {student === undefined && (
           <div className="flex flex-col gap-[10px]">
             <label htmlFor="password" className="font-semibold">
@@ -177,7 +171,6 @@ export default function ManageStudentCreatePage() {
           </div>
         )}
 
-        {/* ✅ Buttons */}
         <div className="flex items-center gap-[14px]">
           <button type="button" className="w-full rounded-full border border-[#060A23] p-[14px_20px] font-semibold">
             Save as Draft

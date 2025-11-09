@@ -8,7 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 export default function ManageCoursePreviewPage({ isAdmin = true }) {
   const course = useLoaderData();
   const { id } = useParams();
-  const location = useLocation(); // ✅ FIX
+  const location = useLocation();
 
   const [activeContent, setActiveContent] = useState(course?.details?.[0]);
 
@@ -23,12 +23,10 @@ export default function ManageCoursePreviewPage({ isAdmin = true }) {
     }
   };
 
-  // ✅ FIXED: active content checker
   const isActive = (item) => activeContent?._id === item._id;
 
   return (
     <div className="flex min-h-screen">
-      {/* SIDEBAR */}
       <aside className="sidebar-container fixed h-[calc(100vh-20px)] w-full max-w-[330px] my-[10px] ml-[10px] bg-[#1E40AF] overflow-hidden flex flex-1 rounded-[20px]">
         <div className="scroll-container flex w-full overflow-y-scroll hide-scrollbar">
           <nav className="flex flex-col w-full h-fit p-[30px] gap-[30px] z-10">
@@ -63,7 +61,6 @@ export default function ManageCoursePreviewPage({ isAdmin = true }) {
         </div>
       </aside>
 
-      {/* MAIN CONTENT */}
       <main className="flex flex-col flex-1 gap-[30px] p-[30px] ml-[340px]">
         <Header type={isAdmin ? "manager" : "student"} />
         <div className="relative flex flex-col gap-[26px]">

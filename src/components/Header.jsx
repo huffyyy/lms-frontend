@@ -29,7 +29,6 @@ export default function Header({ type = "manager" }) {
 
   return (
     <div id="TopBar" className="flex items-center justify-between gap-[30px]">
-      {/* ✅ Search Bar */}
       <form
         action=""
         className="flex items-center w-full max-w-[450px] rounded-full border border-[#CFDBEF] gap-3 px-5 transition-all duration-300 focus-within:ring-2 focus-within:ring-[#1E40AF]">
@@ -43,7 +42,6 @@ export default function Header({ type = "manager" }) {
         <img src="/assets/images/icons/search-normal.svg" className="w-6 h-6" alt="icon" />
       </form>
 
-      {/* ✅ Profile */}
       <div className="relative flex items-center justify-end gap-[14px] group">
         <div className="text-right">
           <p className="font-semibold">{session?.name}</p>
@@ -55,10 +53,8 @@ export default function Header({ type = "manager" }) {
           id="profileButton"
           className="flex shrink-0 w-[50px] h-[50px] rounded-full overflow-hidden ring-2 ring-[#E5E7EB] hover:scale-105 transition-transform duration-200">
           {session?.role === "student" && session?.photo_url ? (
-            // ✅ Student with photo
             <img src={session.photo_url} className="w-full h-full object-cover" alt="profile" />
           ) : (
-            // ✅ Manager OR student without photo → initial avatar
             <div
               className="w-full h-full flex items-center justify-center text-white font-semibold text-lg"
               style={{ backgroundColor: avatarColor }}>
@@ -67,7 +63,6 @@ export default function Header({ type = "manager" }) {
           )}
         </button>
 
-        {/* ✅ Dropdown */}
         <div id="ProfileDropdown" className="absolute top-full hidden group-hover:block z-30">
           <ul className="flex flex-col w-[200px] rounded-[20px] border border-[#CFDBEF] p-5 gap-4 bg-white mt-4 shadow-lg">
             <li className="font-semibold hover:text-[#1E40AF] transition-all cursor-pointer">

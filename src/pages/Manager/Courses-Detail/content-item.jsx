@@ -29,7 +29,6 @@ export default function ContentItem({ id, index, type, title, courseId }) {
       try {
         await mutateAsync();
       } catch (err) {
-        // Error handled by onError callback
         console.error(err);
       }
     });
@@ -41,7 +40,6 @@ export default function ContentItem({ id, index, type, title, courseId }) {
     }
   };
 
-  // Get content type display info
   const contentTypeInfo = {
     text: {
       icon: "note-favorite-blue.svg",
@@ -58,7 +56,6 @@ export default function ContentItem({ id, index, type, title, courseId }) {
   return (
     <>
       <div className="card flex items-center gap-5">
-        {/* Thumbnail with Index Badge */}
         <div className="relative flex shrink-0 w-[140px] h-[110px]">
           <p className="absolute -top-[10px] -left-[10px] flex shrink-0 w-[30px] h-[30px] rounded-full items-center justify-center text-center bg-[#1E40AF] text-white z-10">
             <span className="font-bold text-sm leading-[21px]">{index}</span>
@@ -73,7 +70,6 @@ export default function ContentItem({ id, index, type, title, courseId }) {
           </div>
         </div>
 
-        {/* Content Info */}
         <div className="w-full">
           <h3 className="font-bold text-xl leading-[30px] line-clamp-1" title={title}>
             {title}
@@ -86,7 +82,6 @@ export default function ContentItem({ id, index, type, title, courseId }) {
           </div>
         </div>
 
-        {/* Actions - Delete moved to the right of Edit */}
         <div className="flex justify-end items-center gap-3">
           <button
             type="button"
@@ -105,10 +100,8 @@ export default function ContentItem({ id, index, type, title, courseId }) {
         </div>
       </div>
 
-      {/* Error Toast */}
       <ErrorToast message={error} onClose={() => setError(null)} />
 
-      {/* Confirmation Modal */}
       <ConfirmModal
         isOpen={confirmModal.isOpen}
         onClose={handleCloseModal}

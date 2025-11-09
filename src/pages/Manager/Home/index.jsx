@@ -24,11 +24,8 @@ export default function ManagerHome() {
       </header>
 
       <section id="Stats" className="grid grid-cols-2 gap-[30px] rounded-[30px] p-[30px] bg-[#F8FAFB]">
-        {/* ✅ LEFT COLUMN */}
         <div className="flex flex-col gap-[30px]">
-          {/* ✅ Stats Card */}
           <div className="w-full h-[100px] bg-white rounded-[20px] shadow-[0_4px_10px_0_#E0E2EF] p-1 flex items-center justify-between">
-            {/* Students */}
             <div className="flex items-center gap-3 px-4">
               <div className="w-[40px] h-[40px] rounded-[10px] bg-[#F8FAFB] shadow-[0_2px_6px_0_#E0E2EF] flex items-center justify-center">
                 <img src="/assets/images/icons/student-blue.svg" className="w-[30px]" />
@@ -41,7 +38,6 @@ export default function ManagerHome() {
 
             <div className="h-[50px] w-[1px] bg-[#D3D6E4]" />
 
-            {/* Courses */}
             <div className="flex items-center gap-3 px-6">
               <div className="w-[40px] h-[40px] rounded-[10px] bg-[#F8FAFB] shadow-[0_2px_6px_0_#E0E2EF] flex items-center justify-center">
                 <img src="/assets/images/icons/courses-blue.svg" className="w-[30px]" />
@@ -54,7 +50,6 @@ export default function ManagerHome() {
 
             <div className="h-[50px] w-[1px] bg-[#D3D6E4]" />
 
-            {/* Video */}
             <div className="flex items-center gap-3 px-6">
               <div className="w-[40px] h-[40px] rounded-[10px] bg-[#F8FAFB] shadow-[0_2px_6px_0_#E0E2EF] flex items-center justify-center">
                 <img src="/assets/images/icons/video-blue.svg" className="w-[30px]" />
@@ -67,7 +62,6 @@ export default function ManagerHome() {
 
             <div className="h-[50px] w-[1px] bg-[#D3D6E4]" />
 
-            {/* Text */}
             <div className="flex items-center gap-3 px-6">
               <div className="w-[40px] h-[40px] rounded-[10px] bg-[#F8FAFB] shadow-[0_2px_6px_0_#E0E2EF] flex items-center justify-center">
                 <img src="/assets/images/icons/text-blue.svg" className="w-[30px]" />
@@ -79,12 +73,10 @@ export default function ManagerHome() {
             </div>
           </div>
 
-          {/* ✅ Course Completion Card */}
           <div className="flex flex-col rounded-[16px] p-5 bg-white shadow-[0_4px_4px_0_#E0E2EF]">
             <p className="text-2xl font-semibold mb-4">Course completion status</p>
 
             <div className="flex flex-col items-center justify-center flex-1">
-              {/* Circle */}
               <div className="relative size-40 mb-6">
                 <svg className="size-full -rotate-90" viewBox="0 0 36 36">
                   <circle cx="18" cy="18" r="16" fill="none" className="stroke-[#728DE5]" strokeWidth="4" />
@@ -115,7 +107,6 @@ export default function ManagerHome() {
           </div>
         </div>
 
-        {/* ✅ RIGHT COLUMN (LATEST STUDENTS) */}
         <div>
           <Students />
         </div>
