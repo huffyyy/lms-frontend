@@ -3,7 +3,7 @@ import Courses from "./courses";
 import Students from "./students";
 import { Link, useLoaderData } from "react-router-dom";
 
-export default function ManagerHome() {
+export default function ManagerHomePage() {
   const overview = useLoaderData();
 
   return (
