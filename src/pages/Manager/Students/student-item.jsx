@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link, useRevalidator } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useMutation } from "@tanstack/react-query";
-import { deleteStudent } from "../../../services/studentServices";
-import ConfirmModal from "../../../components/common/confirmModal";
+import { deleteStudent } from "../../../services/studentServices.js";
+import ConfirmModal from "../../../components/common/confirmModal.jsx";
 import ErrorToast from "../../../components/common/errorToast.jsx";
-import { useConfirmModal } from "../../../components/common/useConfirmModal";
+import { useConfirmModal } from "../../../components/common/useConfirmModal.jsx";
 
 export default function StudentItem({
   imageUrl = "/assets/images/photos/photo-3.png",
