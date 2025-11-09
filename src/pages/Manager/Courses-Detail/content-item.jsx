@@ -4,7 +4,7 @@ import { Link, useRevalidator } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { deleteDetailContent } from "../../../services/courseService";
 import ConfirmModal from "../../../components/common/confirmModal";
-import ErrorToast from "../../../components/common/errorToast";
+import ErrorToast from "../../../components/common/errorToast.jsx";
 import { useConfirmModal } from "../../../components/common/useConfirmModal";
 
 export default function ContentItem({ id, index, type, title, courseId }) {

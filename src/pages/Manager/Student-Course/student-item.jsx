@@ -3,7 +3,7 @@ import { useParams, useRevalidator } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useMutation } from "@tanstack/react-query";
 import ConfirmModal from "../../../components/common/confirmModal";
-import ErrorToast from "../../../components/common/errorToast";
+import ErrorToast from "../../../components/common/errorToast.jsx";
 import { useConfirmModal } from "../../../components/common/useConfirmModal";
 import { deleteStudentsCourse } from "../../../services/courseService";
 
