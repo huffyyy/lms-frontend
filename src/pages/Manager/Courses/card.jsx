@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useMutation } from "@tanstack/react-query";
 import { deleteCourse } from "../../../services/courseService";
 import ConfirmModal from "../../../components/common/confirmModal";
-import ErrorToast from "../../../components/common/errorToast";
+import ErrorToast from "../../../components/common/errorToast.jsx";
 import { useConfirmModal } from "../../../components/common/useConfirmModal";
 
 export default function CardCourse({
