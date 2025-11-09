@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
-/**
- * Reusable error toast component
- */
 const ErrorToast = ({ message, onClose, duration = 5000 }) => {
   useEffect(() => {
     if (message && duration > 0) {
