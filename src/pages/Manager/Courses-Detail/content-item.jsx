@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Link, useRevalidator } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { deleteDetailContent } from "../../../services/courseService";
-import ConfirmModal from "../../../components/common/confirmModal";
-import ErrorToast from "../../../components/common/errorToast";
-import { useConfirmModal } from "../../../components/common/useConfirmModal";
+import ConfirmModal from "../../../components/common/ConfirmModal";
+import ErrorToast from "../../../components/common/ErrorToast";
+import { useConfirmModal } from "../../../components/common/UseConfirmModal";
 
 export default function ContentItem({ id, index, type, title, courseId }) {
   const revalidator = useRevalidator();

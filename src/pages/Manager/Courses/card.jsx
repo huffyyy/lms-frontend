@@ -3,9 +3,9 @@ import { Link, useRevalidator } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useMutation } from "@tanstack/react-query";
 import { deleteCourse } from "../../../services/courseService";
-import ConfirmModal from "../../../components/common/confirmModal";
-import ErrorToast from "../../../components/common/errorToast";
-import { useConfirmModal } from "../../../components/common/useConfirmModal";
+import ConfirmModal from "../../../components/common/ConfirmModal";
+import ErrorToast from "../../../components/common/ErrorToast";
+import { useConfirmModal } from "../../../components/common/UseConfirmModal";
 
 export default function CardCourse({
   id,
