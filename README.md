@@ -55,3 +55,38 @@ npm install
 # Start development server
 npm run dev
 ```
+
+## Project Structures
+
+```bash
+lms-frontend/
+│
+├── src/
+│   ├── components/        # Reusable UI components
+│   ├── pages/             # Main pages
+│   ├── layouts/           # Layout wrappers (dashboard, etc)
+│   ├── routes/            # App routing
+│   ├── assets/            # Images, icons, static assets
+│   └── main.jsx           # Application entry point
+│
+├── public/
+├── package.json
+└── vite.config.js
+```
+
+## Scripts
+
+```bash
+npm run dev       # Start development server
+npm run build     # Build for production
+npm run preview   # Preview the production build locally
+```
+
+## Roadmap (Planned Imporvements)
+
+- Add role-based authentication (student/instructor/admin)
+- Course enrollment flow
+- Quiz and assignment pages
+- User profile management
+- API integration with backend service
+- UI polish and accessibility improvements
