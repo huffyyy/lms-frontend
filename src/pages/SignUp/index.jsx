@@ -28,7 +28,7 @@ export default function signUpPage() {
       {mode === "AUTH" ? (
         <div className="relative flex flex-col flex-1 p-[10px]">
           <div className="absolute w-[calc(100%-20px)] min-h-[calc(100vh-20px)] h-[calc(100%-20px)] bg-[#fff] -z-10 rounded-[20px]"></div>
-          <nav className="flex items-center justify-between p-8 border-b border-gray-100 py-2">
+          <nav className="flex items-center justify-between p-8 border-b border-black/25 py-4">
             <Navbar />
 
             <div className="flex items-center space-x-4">
@@ -37,6 +37,12 @@ export default function signUpPage() {
                   <span className="font-semibold text-[#1E40AF] whitespace-nowrap ">My Dashboard</span>
                 </div>
               </Link>
+
+              {/* <Link to="#">
+                <div className="flex items-center justify-center gap-2 rounded-full border px-6 py-3 transition-all duration-300 bg-[#1E40AF] border-[#1E3A8A] hover:bg-[#1D4ED8] hover:border-[#1E40AF] ">
+                  <span className="font-semibold text-white whitespace-nowrap">Sign In</span>
+                </div>
+              </Link> */}
             </div>
           </nav>
 
@@ -118,10 +124,10 @@ export default function signUpPage() {
                 Transform your career with expert-led courses and industry-recognized certifications.
               </p>
               <div className="flex flex-col gap-5 h-fit">
-                <div className="flex items-center gap-3 text-white border-1 border-[#1E40AF] p-6 rounded-[12px]">
+                <div className="flex items-center gap-3 text-white border-2 border-[#1E40AF] p-6 rounded-[12px]">
                   <img
                     src="/assets/images/icons/check-white.svg"
-                    className="w-16 h-16 p-2 shrink-0 mr-4 bg-[#1E40AF] rounded-[6px]"
+                    className="w-16 h-16 p-1 shrink-0 mr-4 bg-[#1E40AF] rounded-[6px]"
                     alt="icon"
                   />
                   <div className="flex flex-col p-2">
@@ -130,7 +136,7 @@ export default function signUpPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-white border-1 border-[#1E40AF] p-6 rounded-[12px]">
+                <div className="flex items-center gap-3 text-white border-2 border-[#1E40AF] p-6 rounded-[12px]">
                   <img
                     src="/assets/images/icons/data-white.svg"
                     className="w-16 h-16 p-1 shrink-0 mr-4 bg-[#1E40AF] rounded-[6px]"
@@ -142,7 +148,7 @@ export default function signUpPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-white border-1 border-[#1E40AF] p-6 rounded-[12px]">
+                <div className="flex items-center gap-3 text-white border-2 border-[#1E40AF] p-6 rounded-[12px]">
                   <img
                     src="/assets/images/icons/certificate-white.svg"
                     className="w-16 h-16 p-1 shrink-0 mr-4 bg-[#1E40AF] rounded-[6px]"

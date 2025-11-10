@@ -1,6 +1,5 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
-import LandingPage from "../pages/Landing";
-import ManagerHomePage from "../pages/Manager/Home";
+import ManagerHomePage from "../pages/Manager/home";
 import SignInPage from "../pages/SignIn";
 import SignUpPage from "../pages/SignUp";
 import SuccesCheckoutPage from "../pages/SuccesCheckout";
@@ -24,16 +23,17 @@ import { getOverviews } from "../services/overvieService";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />
+    element: <ManagerHomePage />
   },
-
   {
     path: "/manager/sign-in",
     loader: async () => {
       const session = secureLocalStorage.getItem(STRORAGE_KEY);
+
       if (session && session === "manager") {
         throw redirect("/manager");
       }
+
       return true;
     },
     element: <SignInPage />
@@ -42,9 +42,11 @@ const router = createBrowserRouter([
     path: "/manager/sign-up",
     loader: async () => {
       const session = secureLocalStorage.getItem(STRORAGE_KEY);
+
       if (session && session === "manager") {
         throw redirect("/manager");
       }
+
       return true;
     },
     element: <SignUpPage />
@@ -58,9 +60,11 @@ const router = createBrowserRouter([
     id: MANAGER_SESSION,
     loader: async () => {
       const session = secureLocalStorage.getItem(STRORAGE_KEY);
+
       if (!session || session.role !== "manager") {
         throw redirect("/manager/sign-in");
       }
+
       return session;
     },
     element: <LayoutDashboard />,
@@ -69,6 +73,7 @@ const router = createBrowserRouter([
         index: true,
         loader: async () => {
           const overviews = await getOverviews();
+
           return overviews?.data;
         },
         element: <ManagerHomePage />
@@ -130,6 +135,7 @@ const router = createBrowserRouter([
         path: "/manager/students",
         loader: async () => {
           const students = await getStudents();
+
           return students?.data;
         },
         element: <ManageStudentsPage />
@@ -142,6 +148,7 @@ const router = createBrowserRouter([
         path: "/manager/students/edit/:id",
         loader: async ({ params }) => {
           const student = await getDetailStudent(params.id);
+
           return student?.data;
         },
         element: <ManageStudentCreatePage />
@@ -150,6 +157,7 @@ const router = createBrowserRouter([
         path: "/manager/courses/students/:id",
         loader: async ({ params }) => {
           const course = await getStudentsCourse(params.id);
+
           return course?.data;
         },
         element: <StudentsCourseList />
@@ -158,6 +166,7 @@ const router = createBrowserRouter([
         path: "/manager/courses/students/:id/add",
         loader: async () => {
           const students = await getStudents();
+
           return students?.data;
         },
         element: <StudentForm />
@@ -169,9 +178,11 @@ const router = createBrowserRouter([
     id: STUDENT_SESSION,
     loader: async () => {
       const session = secureLocalStorage.getItem(STRORAGE_KEY);
+
       if (!session || session.role !== "student") {
         throw redirect("/student/sign-in");
       }
+
       return session;
     },
     element: <LayoutDashboard isAdmin={false} />,
@@ -180,6 +191,7 @@ const router = createBrowserRouter([
         index: true,
         loader: async () => {
           const courses = await getCoursesStudents();
+
           return courses?.data;
         },
         element: <StudentPage />
@@ -198,9 +210,11 @@ const router = createBrowserRouter([
     path: "/student/sign-in",
     loader: async () => {
       const session = secureLocalStorage.getItem(STRORAGE_KEY);
+
       if (session && session === "student") {
         throw redirect("/student");
       }
+
       return true;
     },
     element: <SignInPage type="student" />

@@ -1,63 +1,39 @@
-// ...existing code...
 import axios from "axios";
 import secureLocalStorage from "react-secure-storage";
-import { STRORAGE_KEY } from "../utils/const";
+import { STRORAGE_KEY } from "./const";
 
-const getEnv = () => {
-  // Vite: import.meta.env.VITE_API_URL
-  if (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.VITE_API_URL) {
-    return import.meta.env.VITE_API_URL;
-  }
-  // CRA: process.env.REACT_APP_API_URL (guarded)
-  if (typeof process !== "undefined" && process.env && process.env.REACT_APP_API_URL) {
-    return process.env.REACT_APP_API_URL;
-  }
-  // fallback
-  return "http://localhost:3000/api";
-};
+const baseURL = import.meta.env.VITE_API_URL;
 
-const BASE_URL = getEnv();
-
-export const apiInstance = axios.create({
-  baseURL: BASE_URL
+const apiInstance = axios.create({
+  baseURL,
+  timeout: 3000
 });
 
 export const apiInstanceAuth = axios.create({
-  baseURL: BASE_URL
+  baseURL,
+  timeout: 3000
 });
 
-// attach token only if exists
 apiInstanceAuth.interceptors.request.use((config) => {
-  try {
-    const stored = secureLocalStorage.getItem(STRORAGE_KEY);
-    const token = stored?.token ?? (typeof stored === "string" ? stored : undefined);
-    if (token) {
-      config.headers = {
-        ...(config.headers || {}),
-        Authorization: `Bearer ${token}`
-      };
-    }
-  } catch (e) {
-    // ignore
+  const session = secureLocalStorage.getItem("STRORAGE_KEY");
+
+  if (!session) {
+    return config;
   }
+  config.headers.Authorization = `JWT ${session.token}`;
+
   return config;
 });
 
-// optional: global 401 handler
 apiInstanceAuth.interceptors.response.use(
-  (res) => res,
-  (error) => {
-    if (error?.response?.status === 401) {
-      try {
-        secureLocalStorage.removeItem(STRORAGE_KEY);
-      } catch (e) {}
-      if (typeof window !== "undefined") {
-        window.location.href = "/manager/sign-in";
-      }
+  (response) => response,
+  (err) => {
+    if (err?.response?.status === 400) {
+      window.location.replace("/manager/sign-in");
+      secureLocalStorage.removeItem(STRORAGE_KEY);
     }
-    return Promise.reject(error);
+    return Promise.reject("Err");
   }
 );
 
 export default apiInstance;
-// ...existing code...
