@@ -3,7 +3,7 @@ import { Link, useRevalidator } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useMutation } from "@tanstack/react-query";
 import { deleteCourse } from "../../../services/courseService.js";
-import ConfirmModal from "../../../components/common/ConfirmModal.jsx";
+import ConfirmModal from "../../../components/common/confirmModal.jsx";
 import ErrorToast from "../../../components/common/ErrorToast.jsx";
 import { useConfirmModal } from "../../../components/common/UseConfirmModal.jsx";
 
@@ -28,7 +28,6 @@ export default function CardCourse({
       revalidator.revalidate();
     }
   });
-
   const handleDeleteClick = () => {
     setError(null);
     confirmModal.open(async () => {
