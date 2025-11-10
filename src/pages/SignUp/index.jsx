@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod/src/zod.js";
 import { signUpSchema } from "../../utils/zodSchema";
 import { useForm } from "react-hook-form";
 import Pricing from "./pricing";
-import { X } from "lucide-react";
 
 export default function signUpPage() {
   const [dataSignUp, setDataSignUp] = React.useState(null);

@@ -1,3 +1,3 @@
 import { apiInstanceAuth } from "../utils/axios";
 
-export const getOverviews = async () => apiInstanceAuth.get("/overviews").then((res) => res.data);
+export const getOverviews = async () => apiInstance.get("/overviews").then((res) => res.data);
