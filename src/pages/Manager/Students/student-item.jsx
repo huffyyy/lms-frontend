@@ -3,8 +3,8 @@ import { Link, useRevalidator } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useMutation } from "@tanstack/react-query";
 import { deleteStudent } from "../../../services/studentServices.js";
-import ConfirmModal from "../../../components/common/confirmModal.jsx";
-import ErrorToast from "../../../components/common/errorToast.jsx";
+import ConfirmModal from "../../../components/common/ConfirmModal.jsx";
+import ErrorToast from "../../../components/common/ErrorToast.jsx";
 import { useConfirmModal } from "../../../components/common/useConfirmModal.jsx";
 
 export default function StudentItem({
