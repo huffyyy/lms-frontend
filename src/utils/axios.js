@@ -2,7 +2,7 @@ import axios from "axios";
 import secureLocalStorage from "react-secure-storage";
 import { STRORAGE_KEY } from "./const";
 
-const baseURL = import.meta.env.VITE_API_URL;
+const baseURL = import.meta?.env?.VITE_API_URL ?? "http://localhost:3000/api";
 
 const apiInstance = axios.create({
   baseURL,
@@ -14,25 +14,46 @@ export const apiInstanceAuth = axios.create({
   timeout: 3000
 });
 
-apiInstanceAuth.interceptors.request.use((config) => {
-  const session = secureLocalStorage.getItem("STRORAGE_KEY");
+apiInstanceAuth.interceptors.request.use(
+  (config) => {
+    try {
+      const session = secureLocalStorage.getItem(STRORAGE_KEY);
 
-  if (!session) {
+      if (!session) return config;
+
+      const token = typeof session === "string" ? session : session?.token ?? session?.data?.token;
+
+      if (!token) return config;
+
+      config.headers = {
+        ...(config.headers || {}),
+        Authorization: `JWT ${token}`
+      };
+    } catch (err) {
+      // gunakan variable agar eslint tidak menandai sebagai unused
+      void err;
+    }
     return config;
-  }
-  config.headers.Authorization = `JWT ${session.token}`;
-
-  return config;
-});
+  },
+  (err) => Promise.reject(err)
+);
 
 apiInstanceAuth.interceptors.response.use(
   (response) => response,
   (err) => {
-    if (err?.response?.status === 400) {
-      window.location.replace("/manager/sign-in");
-      secureLocalStorage.removeItem(STRORAGE_KEY);
+    const status = err?.response?.status;
+    if (status === 401) {
+      try {
+        secureLocalStorage.removeItem(STRORAGE_KEY);
+      } catch (removeErr) {
+        // gunakan variable agar eslint tidak menandai sebagai unused
+        void removeErr;
+      }
+      if (typeof window !== "undefined") {
+        window.location.replace("/manager/sign-in");
+      }
     }
-    return Promise.reject("Err");
+    return Promise.reject(err);
   }
 );
 
