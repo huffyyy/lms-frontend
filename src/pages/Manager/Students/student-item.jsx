@@ -5,7 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import { deleteStudent } from "../../../services/studentServices.js";
 import ConfirmModal from "../../../components/common/ConfirmModal.jsx";
 import ErrorToast from "../../../components/common/ErrorToast.jsx";
-import { useConfirmModal } from "../../../components/common/UseConfirmModal.jsx";
+import { useConfirmModal } from "../../../components/common/useConfirmModal.jsx";
 
 export default function StudentItem({
   imageUrl = "/assets/images/photos/photo-3.png",
