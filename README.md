@@ -1,8 +1,10 @@
 # LMS Frontend
 
-A clean and modern frontend for a Learning Management System (LMS), built with React and Vite.
-Designed to deliver a responsive interface, modular components, and an intuitive learning experience.
-This project is part of a full-stack MERN architecture, integrating MongoDB, Express.js, React, and Node.js.
+A clean, modern, and modular Learning Management System (LMS) Frontend, built using React + Vite.
+This project is part of a full-stack LMS built with the MERN architecture (MongoDB, Express.js, React, Node.js), designed for scalability, reusability, and seamless learning workflows.
+
+Fully responsive, fast, and production-ready.
+Deployed Demo (frontend-only): https://demo-fe-lms.vercel.app/
 
 ---
 
@@ -31,12 +33,27 @@ This project is part of a full-stack MERN architecture, integrating MongoDB, Exp
 
 ## Features
 
-- Modern and responsive UI
-- Course browsing and detailed views
-- Student/instructor dashboard
-- Structured learning workflow
-- Modular and reusable components
-- Fast development setup with Vite
+- **Learning Management Features**
+  - Browse courses with thumbnails, categories, and descriptions
+  - Detailed course page (video + text content)
+  - Students list per course
+  - Add/edit course content
+- **Manager Dashboard**
+  - Overview stats (students, courses)
+  - Manage courses
+  - Manage students
+- **Student Dashboard**
+  - View enrolled courses
+  - Course preview (read/watch)
+- **General Features**
+  - Fully responsive dashboard layout
+  - Clean UI components with Tailwind
+  - Modular architecture for easy extension
+  - Smooth navigation with React Router
+  - Reusable components: cards, modals, inputs, layout wrappers
+- **Performance**
+  - Component-level code splitting
+  - Instant HMR via Vite
 
 ---
 
@@ -84,7 +101,7 @@ npm run preview   # Preview the production build locally
 
 ## Roadmap (Planned Imporvements)
 
-- Add role-based authentication (student/instructor/admin)
+- Add role-based authentication (manager/student)
 - Course enrollment flow
 - Quiz and assignment pages
 - User profile management
