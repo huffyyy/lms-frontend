@@ -37,12 +37,6 @@ export default function signUpPage() {
                   <span className="font-semibold text-[#1E40AF] whitespace-nowrap ">My Dashboard</span>
                 </div>
               </Link>
-
-              {/* <Link to="#">
-                <div className="flex items-center justify-center gap-2 rounded-full border px-6 py-3 transition-all duration-300 bg-[#1E40AF] border-[#1E3A8A] hover:bg-[#1D4ED8] hover:border-[#1E40AF] ">
-                  <span className="font-semibold text-white whitespace-nowrap">Sign In</span>
-                </div>
-              </Link> */}
             </div>
           </nav>
 

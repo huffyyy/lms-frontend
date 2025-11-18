@@ -30,7 +30,6 @@ apiInstanceAuth.interceptors.request.use(
         Authorization: `JWT ${token}`
       };
     } catch (err) {
-      // gunakan variable agar eslint tidak menandai sebagai unused
       void err;
     }
     return config;
@@ -46,7 +45,6 @@ apiInstanceAuth.interceptors.response.use(
       try {
         secureLocalStorage.removeItem(STRORAGE_KEY);
       } catch (removeErr) {
-        // gunakan variable agar eslint tidak menandai sebagai unused
         void removeErr;
       }
       if (typeof window !== "undefined") {

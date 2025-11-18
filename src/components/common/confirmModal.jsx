@@ -1,10 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-/**
- * Reusable confirmation modal component
- * Can be used for any type of destructive action confirmation
- */
 const ConfirmModal = ({
   isOpen,
   onClose,
@@ -14,7 +10,7 @@ const ConfirmModal = ({
   confirmText = "Confirm",
   cancelText = "Cancel",
   isLoading = false,
-  variant = "danger" // "danger" | "warning" | "info"
+  variant = "danger"
 }) => {
   if (!isOpen) return null;
 
