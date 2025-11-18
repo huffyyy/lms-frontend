@@ -1,9 +1,8 @@
 # LMS Frontend
 
 A clean, modern, and modular Learning Management System (LMS) Frontend, built using React + Vite.
-This project is part of a full-stack LMS built with the MERN architecture (MongoDB, Express.js, React, Node.js), designed for scalability, reusability, and seamless learning workflows.
+This project is part of a full-stack LMS built with the MERN architecture (MongoDB, Express.js, React, Node.js), designed for scalability, reusability, and seamless learning workflows. Fully responsive, fast, and production-ready.
 
-Fully responsive, fast, and production-ready.
 Deployed Demo (frontend-only): https://demo-fe-lms.vercel.app/
 
 ---
@@ -57,7 +56,7 @@ Deployed Demo (frontend-only): https://demo-fe-lms.vercel.app/
 
 ---
 
-## 🛠 Installation
+## Installation
 
 ```bash
 # Clone the repository
